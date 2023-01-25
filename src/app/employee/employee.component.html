@@ -1,0 +1,82 @@
+<p>employee works!</p>
+
+<h1 *ngIf="visible">{{title}}</h1>
+
+<input type="radio" name="topgun" (click)="OnChange(true)">True
+<input type="radio" name="topgun" (click)="OnChange(false)">False
+
+<div *ngIf="IsVisible; then thenBlock; else elseBlock"></div>
+
+<ng-template #thenBlock>
+    <p>The sky is black</p>
+</ng-template>
+
+<ng-template #elseBlock>
+    <p>The sky is green </p>
+</ng-template>
+
+<select (change)="SetColour($event)">
+    <option value="">------Select Colour------</option>
+    <option value="B">Black</option>
+    <option value="G">Green</option>
+    <option value="R">Red</option>
+    <option value="P">Purple</option>
+    <option value="Y">Yellow</option>
+
+</select>
+
+<div [ngSwitch]="colour">
+    <div *ngSwitchCase="'B'">
+        <p style="color: black;">The Sky is black</p>
+
+    </div>
+
+    <div *ngSwitchCase="'G'">
+        <p style="color: green;">The Sky is green</p>
+    </div>
+
+    <div *ngSwitchDefault>
+        <p style="color:aquamarine">The sky is neutral</p>
+    </div>
+</div>
+
+<table [ngClass]="number1 > number2?'number1':'number2'" border="10">
+    <thead>
+        
+        <th>Sequence</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>First Rec</th>
+        <th>Last Rec</th>
+
+    </thead>
+       <tbody>
+           <tr *ngFor="let employee of Employee; let i = index; first as IsFirst; last as IsLast; 
+           trackBy:TrackByEmployeeName; even as IsEven; odd as IsOdd" [ngClass]="GetCSS(IsEven)">
+
+            <!-- <div [ngStyle]="{'color': IsEven? 'purple': 'blue'}"> -->
+
+                <td>{{i + 1}}</td>
+                <td>{{employee.Name | uppercase}}</td>
+                <td [ngStyle]= "{'color' :CheckAge(employee.Age)}">{{employee.Age}}</td>
+                <td>{{employee.Gender}}</td>
+                <td>{{IsFirst}}</td>
+                <td>{{IsLast}}</td>
+            <!-- </div> -->
+
+           </tr>
+        </tbody>
+</table>
+
+<br>
+
+
+<button (click)="GetMoreEmployee()"> Add More Employees</button>
+
+<br>
+
+<p [ngClass]="'color1'">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda veritatis animi distinctio rerum optio. Suscipit vel, veniam quas assumenda, incidunt quisquam non explicabo rem corrupti, cupiditate tempore quis doloremque est.</p>
+<!-- <p *ngIf="IsVisible">The sky is blue</p>
+
+<p *ngIf="!IsVisible">The sky is red</p> -->

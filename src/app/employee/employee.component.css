@@ -1,0 +1,29 @@
+.color1 {
+    color: rgb(3, 171, 3);
+}
+
+.color2 {
+    color: rgb(252, 33, 33);
+
+}
+
+.font {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.even {
+    color: purple
+}
+
+.odd{
+    color: rgb(60, 87, 143)
+}
+
+.number1{ 
+    color: rgb(255, 153, 10)
+}
+
+.number2{ 
+    color: olive
+}
