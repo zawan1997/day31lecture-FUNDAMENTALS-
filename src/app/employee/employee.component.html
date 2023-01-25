@@ -80,3 +80,16 @@
 <!-- <p *ngIf="IsVisible">The sky is blue</p>
 
 <p *ngIf="!IsVisible">The sky is red</p> -->
+
+<br>
+<div> Sum of 2 numbers {{number1 + number2}}</div>
+
+<div [innerHTML]="title"></div>
+
+<button (click)="ShowSomeData" >Show some Data</button>
+
+Enter My Name : <input type="text" [value] = "myName" (input) = "myName = $any($event.target).value">
+
+<br>
+Update MyName is {{myName}}
+

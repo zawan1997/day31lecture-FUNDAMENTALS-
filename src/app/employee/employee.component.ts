@@ -21,6 +21,7 @@ export class EmployeeComponent {
 
   IsVisible = true;
 
+  myName= String("Nawaz")
 
 
   ShowContent(val1: number, val2: number, val3: number): boolean {
@@ -115,5 +116,9 @@ export class EmployeeComponent {
     } else {
       return "odd"
     }
+  }
+
+  ShowSomeData(){
+    alert:"Hello world";
   }
 }
